@@ -5,6 +5,9 @@ import './App.css'
 import { render } from "@testing-library/react";
 
 class App extends Component {
+  deleteHandler(){
+    alert("Delete Clicked")
+  }
   render(){
     let subscriber = [
       {
@@ -35,7 +38,7 @@ class App extends Component {
               <span className="grid-item">{sub.name}</span>
               <span className="grid-item">{sub.phone}</span>
               <span className="grid-item action-btn-container">
-                  <button className="custom-btn delete-btn">Delete</button>
+                  <button className="custom-btn delete-btn" onClick={this.deleteHandler}>Delete</button>
                 </span>
               </div>
           })
