@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Header from "./Header";
-import './App.css'
-import { render } from "@testing-library/react";
+import './ShowSubscribers.css'
+import { logDOM, render } from "@testing-library/react";
 
 // let subscriber = [
 //   {
@@ -16,19 +16,34 @@ import { render } from "@testing-library/react";
 //     phone:"77777777"
 //   }
 // ]
-class App extends Component {
+class ShowSubcribers extends Component {
   // deleteHandler(){
   //   alert("Delete Clicked")
   // }
 
-  constructor()
-  {
-    super();
-    this.state = {
-      subscriberListToShow : []
-    }
-  }
+  // constructor()
+  // {
+  //   super();
+  //   this.state = {
+  //     subscriberListToShow : []
+  //   }
+  //   // console.log("Constructor called");
+  // }
+
+  // componentDidMount(){
+  //   let newSubscriber = {
+  //     id: 1,
+  //     name: "Shilpa Bhat", 
+  //     phone: "88888888888"
+  //   }
+  //   let subscribersList = this.state.subscriberListToShow;
+  //   subscribersList.push(newSubscriber);
+  //   this.setState({subscriberListToShow: subscribersList});
+  //   console.log("Component Did Mount Called");
+  //   console.log("State", this.state);
+  // }
   render(){
+    // console.log("Render Called");
   return (
     <div>
       <Header heading="Phone Directory"/>
@@ -40,7 +55,7 @@ class App extends Component {
           <span className="grid-item phone-heading">Phone</span>
         </div>
         {
-          this.state.subscriberListToShow.map(sub => {
+          this.props.subscriberList.map(sub => {
               return <div key={sub.id} className="grid-container">
               <span className="grid-item">{sub.name}</span>
               <span className="grid-item">{sub.phone}</span>
@@ -55,4 +70,4 @@ class App extends Component {
   );
 }
 };
-export default App;
+export default ShowSubcribers;
